@@ -19,3 +19,4 @@ di:
 
 services:
 	- App\Router\RouterFactory::createRouter
+	- App\Services\ParameterService(%appDir%)
