@@ -1,5 +1,5 @@
 parameters:
-
+    site_name: 'Simple Gallery'
 
 application:
 	errorPresenter: Error
@@ -19,4 +19,4 @@ di:
 
 services:
 	- App\Router\RouterFactory::createRouter
-	- App\Services\ParameterService(%appDir%)
+	- App\Services\ParameterService(%appDir%, %site_name%)

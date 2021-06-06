@@ -3,8 +3,9 @@
 
 namespace App\Modules\Front\Presenters;
 
+use App\Presenters\BasePresenter;
 
-class HomepagePresenter extends \Nette\Application\UI\Presenter
+class HomepagePresenter extends BasePresenter
 {
 
 }
