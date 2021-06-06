@@ -1,3 +1,4 @@
 config/local.neon
 .idea
 db.sq3
+composer.lock
