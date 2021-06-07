@@ -1,0 +1,23 @@
+{block content}
+<div class="container">
+    <div class="columns">
+        <div class="column">
+            <div class="block">
+                <section class="hero is-small is-primary">
+                    <div class="hero-body">
+                        <p class="title" n:block="title">
+                            Add image
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-two-fifths">
+            <div class="block">
+                {include '../../../../../Components/form.latte' form=>addImageForm}
+            </div>
+        </div>
+    </div>
+</div>
