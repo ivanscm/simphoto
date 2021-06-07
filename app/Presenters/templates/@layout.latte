@@ -27,10 +27,6 @@
             <a n:href=":Front:Homepage:default" class="navbar-item">
                 Home
             </a>
-            {if $user->isLoggedIn()}
-                <a class="navbar-item {if $presenter->isLinkCurrent(':Admin:Tags:*')}is-active{/if}"
-                        n:href=":Admin:Tags:">Tags</a>
-            {/if}
         </div>
 
         {if $user->isLoggedIn()}
@@ -38,6 +34,18 @@
                 <div class="navbar-item">
                     <span>Hello, {$user->id}!</span>
                 </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link {if $presenter->isLinkCurrent(':Admin:Images:*')}is-active{/if}">
+                        Administration
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item {if $presenter->isLinkCurrent(':Admin:Images:*')}is-active{/if}"
+                                n:href=":Admin:Images:">Images</a>
+                        <a class="navbar-item {if $presenter->isLinkCurrent(':Admin:Tags:*')}is-active{/if}"
+                                n:href=":Admin:Tags:">Tags</a>
+                    </div>
+                </div>
+            </div>
                 <div class="navbar-item">
                     <div class="buttons">
                         <a n:href=":Admin:Sign:out" class="button is-light">
