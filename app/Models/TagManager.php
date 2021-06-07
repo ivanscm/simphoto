@@ -42,6 +42,11 @@ class TagManager
         return $this->database->table(self::TABLE_NAME)->limit($limit, $offset);
     }
 
+    public function findAllForSelect()
+    {
+        return $this->database->table(self::TABLE_NAME)->fetchPairs('slug', 'title');
+    }
+
     public function get($slug)
     {
         return $this->database->table(self::TABLE_NAME)->get($slug);
