@@ -1,0 +1,68 @@
+{block content}
+<div class="container">
+    <div class="columns">
+        <div class="column">
+            <div class="block">
+                <section class="hero is-small is-primary">
+                    <div class="hero-body">
+                        <p class="title" n:block="title">
+                            Tags list
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column">
+            <div class="block">
+                <div class="buttons is-pulled-right">
+                    <a n:href="add" class="button is-primary">Add tag</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column">
+            <div class="block">
+                {if $tagsCount >= 1}
+                    <table class="table is-hoverable is-fullwidth">
+                        <thead>
+                        <tr>
+                            <th>Slug</th>
+                            <th>Title</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Slug</th>
+                            <th>Title</th>
+                            <th>Actions</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        {foreach $tags as $tag}
+                            <tr>
+                                <th>{$tag->slug}</th>
+                                <td><a n:href="edit $tag->slug">{$tag->title}</a></td>
+                                <td>
+                                    <div class="buttons">
+                                        <a n:href="remove $tag->slug" class="button is-small is-danger is-outlined">Remove</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                {include '../../../../../Components/pagination.latte' paginator=>$paginator}
+                {else}
+                    <div class="notification is-info is-light">
+                        <button class="delete"></button>
+                        There are no tags. <a n:href="add">Create now.<a>
+                    </div>
+                {/if}
+            </div>
+        </div>
+    </div>
+</div>

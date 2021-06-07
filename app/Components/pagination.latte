@@ -1,0 +1,15 @@
+<nav class="pagination" role="navigation" aria-label="pagination">
+    {if !$paginator->isFirst()}
+        <a n:href="default, 1" class="pagination-previous">First</a>
+        <a n:href="default, $paginator->page-1" class="pagination-previous">Previous</a>
+    {/if}
+	{if !$paginator->isLast()}
+        <a n:href="default, $paginator->getPage() + 1" class="pagination-next">Next</a>
+        <a n:href="default, $paginator->getPageCount()" class="pagination-next">Last</a>
+    {/if}
+    <ul class="pagination-list">
+        <li>
+            <span class="pagination-ellipsis">Page {$paginator->getPage()} of {$paginator->getPageCount()}</span>
+        </li>
+    </ul>
+</nav>

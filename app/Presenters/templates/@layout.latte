@@ -27,6 +27,10 @@
             <a n:href=":Front:Homepage:default" class="navbar-item">
                 Home
             </a>
+            {if $user->isLoggedIn()}
+                <a class="navbar-item {if $presenter->isLinkCurrent(':Admin:Tags:*')}is-active{/if}"
+                        n:href=":Admin:Tags:">Tags</a>
+            {/if}
         </div>
 
         {if $user->isLoggedIn()}
@@ -46,9 +50,11 @@
     </div>
 </nav>
 <div class="container">
-    <div n:foreach="$flashes as $flash" n:class="notification, 'is-'.$flash->type">
-        <button class="delete"></button>
-        {$flash->message}
+    <div class="block mb-3">
+        <div n:foreach="$flashes as $flash" n:class="notification, 'is-' . $flash->type">
+            <button class="delete"></button>
+            {$flash->message}
+        </div>
     </div>
 </div>
 

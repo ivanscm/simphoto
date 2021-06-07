@@ -1,0 +1,23 @@
+{form $form}
+    {foreach $form->controls as $name => $field}
+        <div class="field">
+            {label $name class=>'label'/}
+            <div class="control">
+                {if $field instanceof Nette\Forms\Controls\TextInput}
+                    {input $name class=>'input'}
+                {elseif $field instanceof Nette\Forms\Controls\SubmitButton}
+                    {if $name == 'remove'}
+                        {var string $class_name = 'is-danger'}
+                    {else}
+                        {var string $class_name = 'is-primary'}
+                    {/if}
+                    {input $name class=>'button ' . $class_name}
+                {else}
+                    {input $name}
+                    {dump $field}
+                {/if}
+            </div>
+            <p class="help is-danger" n:ifcontent>{inputError $name}</p>
+        </div>
+    {/foreach}
+{/form}

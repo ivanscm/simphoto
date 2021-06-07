@@ -20,3 +20,4 @@ di:
 services:
 	- App\Router\RouterFactory::createRouter
 	- App\Services\ParameterService(%appDir%, %site_name%)
+	- App\Models\TagManager
