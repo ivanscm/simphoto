@@ -21,3 +21,4 @@ services:
 	- App\Router\RouterFactory::createRouter
 	- App\Services\ParameterService(%appDir%, %site_name%)
 	- App\Models\TagManager
+	- App\Models\ImageManager('%wwwDir%/images')
