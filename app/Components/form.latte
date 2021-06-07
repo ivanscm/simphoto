@@ -12,6 +12,14 @@
                         {var string $class_name = 'is-primary'}
                     {/if}
                     {input $name class=>'button ' . $class_name}
+                {elseif $field instanceof Nette\Forms\Controls\TextArea}
+                    {input $name class=>'textarea'}
+                {elseif $field instanceof Nette\Forms\Controls\MultiSelectBox}
+                    <div class="select is-multiple">
+                        {input $name}
+                    </div>
+                {elseif $field instanceof Nette\Forms\Controls\UploadControl}
+                    {input $name class=>'input'}
                 {else}
                     {input $name}
                     {dump $field}
