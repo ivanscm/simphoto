@@ -1,0 +1,40 @@
+{block content}
+<div class="container">
+    <div class="columns">
+        <div class="column">
+            <div class="block">
+                <section class="hero is-small is-primary">
+                    <div class="hero-body">
+                        <p class="title" n:block="title">
+                            {ifset $image}Image: {$image->title}{else}Add image{/ifset}
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column">
+            <div class="block">
+                <div class="buttons is-pulled-right">
+                    <a n:href="default" class="button is-primary">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-two-fifths">
+            <div class="block">
+                {include '../../../../../Components/form.latte' form=>imageEditForm}
+            </div>
+        </div>
+        <div class="column is-one-fifth"></div>
+        <div class="column is-two-fifths">
+            {ifset $image}
+                <figure>
+                    <img class="image" src="{imageUrl($image->slug, 'thumb')}">
+                </figure>
+            {/ifset}
+        </div>
+    </div>
+</div>

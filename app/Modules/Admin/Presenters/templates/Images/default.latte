@@ -14,6 +14,39 @@
         </div>
     </div>
     <div class="columns">
-
+        <div class="column">
+            <div class="block">
+                <div class="buttons is-pulled-right">
+                    <a n:href="add" class="button is-primary">Add image</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns is-multiline is-mobile">
+        {foreach $images as $image}
+            <div class="column is-one-fifth">
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title text-overflow">
+                            {$image->title}
+                        </p>
+                    </header>
+                    <div class="card-image">
+                        <figure class="image is-square card-image-cover"
+                                style="background-image: url('{imageUrl($image->slug, 'thumb')|noescape}');">
+                        </figure>
+                    </div>
+                    <footer class="card-footer">
+                        <a n:href="edit $image->slug" class="card-footer-item">Edit</a>
+                        <a n:href="remove $image->slug" class="card-footer-item has-background-danger-light">Remove</a>
+                    </footer>
+                </div>
+            </div>
+        {/foreach}
+    </div>
+    <div class="columns">
+        <div class="column">
+            {include '../../../../../Components/pagination.latte' paginator=>$paginator}
+        </div>
     </div>
 </div>

@@ -3,10 +3,13 @@
     <div class="columns">
         <div class="column">
             <div class="block">
-                <section class="hero is-small is-primary">
+                <section class="hero is-small is-danger">
                     <div class="hero-body">
-                        <p class="title" n:block="title">
-                            Add image
+                        <p class="title">
+                            Image: {$image->title}
+                        </p>
+                        <p class="subtitle" n:block="title">
+                            Confirm remove image
                         </p>
                     </div>
                 </section>
@@ -16,7 +19,7 @@
     <div class="columns">
         <div class="column is-two-fifths">
             <div class="block">
-                {include '../../../../../Components/form.latte' form=>addImageForm}
+                {include '../../../../../Components/form.latte' form=>removeImageForm}
             </div>
         </div>
     </div>
